@@ -1,6 +1,6 @@
 import { JobResponse } from "./type";
 
-export const jobData = async (): Promise<void> => {
+export const jobData = async (): Promise<JobResponse | void> => {
   try {
     const response = await fetch(
       `/api/v1/furusato/jobinfo/?appid=dj00aiZpPUg3dXd2YzNEakNTSSZzPWNvbnN1bWVyc2VjcmV0Jng9NGU-&`,
@@ -12,9 +12,13 @@ export const jobData = async (): Promise<void> => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const res: JobResponse = await response.json();
+    return res;
+  } catch (error) {
+    console.error("Error fetching job data:", error);
   }
-}
-export const jobDataById = async (id:string): Promise<void> => {
+};
+
+export const jobDataById = async (id: string): Promise<JobResponse | void> => {
   try {
     const response = await fetch(
       `/api/v1/furusato/jobinfo/?appid=dj00aiZpPUg3dXd2YzNEakNTSSZzPWNvbnN1bWVyc2VjcmV0Jng9NGU-&yJobId=${id}`,
@@ -26,5 +30,8 @@ export const jobDataById = async (id:string): Promise<void> => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const res: JobResponse = await response.json();
+    return res;
+  } catch (error) {
+    console.error(`Error fetching job data by ID (${id}):`, error);
   }
-}
+};

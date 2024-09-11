@@ -41,13 +41,13 @@ const JobInfo: React.FC = () => {
   return (
     <div>
       {data.results &&
-        data.results.map((job: JobType, index) => {
+        data.results.map((job: JobType) => {
           const avgSalary = salary({
             max: job.salaryMax,
             min: job.salaryMin,
           });
           return (
-            <div key={index}>
+            <div key={job.yJobId}>
               <div>yJobId: {job.yJobId}</div>
               <div>Average Salary: {avgSalary}</div>
               <Link to={`/${job.yJobId}`}>詳細を見る</Link>
