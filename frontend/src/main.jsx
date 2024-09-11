@@ -1,21 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { ChakraProvider } from '@chakra-ui/react';
-import Explanation from './pages/Explanation';
-import Main from './pages/Main';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';  // グローバルスタイルやリセットCSSがあれば
+import App from './App';  // Appコンポーネントのインポート
 
-
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <ChakraProvider>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/explanation" element={<Explanation />} />
-        {/* 他のルートがあればここに追加 */}
-      </Routes>
-    </Router>
-    </ChakraProvider>
-  </StrictMode>,
-)
+// React 18以降のcreateRootを使ったレンダリング
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
