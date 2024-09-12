@@ -1,4 +1,8 @@
 import * as React from "react";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
 import {
   Input,
   Button,
@@ -8,9 +12,15 @@ import './App.css'
 const  App = () => {
   return (
     <>
-    <header>
-      <h1>サイトタイトル</h1>
-    </header>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" sx={{backgroundColor: 'black'}}>
+          <Toolbar variant="dense">
+            <Typography variant="h6" color="inherit" component="div">
+              BlackChecker
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Box>
     <main className='main-content'>
       <section className='description'>            {/* サイトについて簡易的な説明 */}
         <p>
@@ -104,7 +114,9 @@ const  App = () => {
             </Select>
           </div>
         </div>
-        <Button className="search-button" sx={{width: 100}}>検索</Button>
+        <div className="search-button0container">
+          <Button className="search-button" sx={{width: 100}}>検索</Button>
+        </div>
       </section>
       <section className='detailed-description'>  {/* ページの詳細な説明 */}
         <div className='desc'>
