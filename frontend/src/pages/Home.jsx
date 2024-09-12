@@ -11,7 +11,6 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import CircularProgress from '@mui/material/CircularProgress';
-import ListItemText from '@mui/material/ListItemText';
 
 const style = {
   p: 0,
@@ -34,7 +33,7 @@ const name = {
 };
 
 function Home() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState('1');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -93,7 +92,7 @@ function Home() {
             </TabPanel>
 
             <TabPanel value="2">
-             なんか情報
+              なんか情報
             </TabPanel>
           </TabContext>
         </Box>
