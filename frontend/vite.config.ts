@@ -1,13 +1,14 @@
-// frontend/vite.config.js
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: "../backend/static", // Djangoの静的ファイルディレクトリにビルド結果を出力
+    outDir: '../backend/static',
     emptyOutDir: true,
   },
+  
   server: {
     proxy: {
       "/api": {
