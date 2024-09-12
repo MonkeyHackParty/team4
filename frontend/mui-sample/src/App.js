@@ -28,9 +28,9 @@ const  App = () => {
         </p>
       </section>
       <section className='search'>
+        <h2>企業を検索する</h2>
         <div className="search-word">
-          <h2>検索</h2>
-          <Input
+          <Input className="search-word-input"
             placeholder="キーワードを入力"
             variant="soft"
           />
@@ -114,8 +114,8 @@ const  App = () => {
             </Select>
           </div>
         </div>
-        <div className="search-button0container">
-          <Button className="search-button" sx={{width: 100}}>検索</Button>
+        <div className="search-button">
+          <Button sx={{width: 100}}>検索</Button>
         </div>
       </section>
       <section className='detailed-description'>  {/* ページの詳細な説明 */}

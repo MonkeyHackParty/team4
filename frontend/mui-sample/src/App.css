@@ -35,13 +35,18 @@ section {
 .search {
   display: flex;
   flex-direction: column;
-  align-items: end;
   position: relative;
 }
 
 .search-word {
+  display: flex;
   text-align: center;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-word-input {
+  width: 50vw
 }
 
 .search-options {
@@ -51,15 +56,11 @@ section {
   width: 100%;
 }
 
-.search-button-container {
+.search-button {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   padding-right: 20px;
-}
-
-.search-button {
-  width: 100px;
 }
 
 .desc img {
