@@ -1,19 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, monospace;
   justify-content: center;
   height: 100vh;
   text-align: center;
-}
-
-header {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  width: 100%;
-  font-size: 24px;
-  padding: 10px 0;
+  background-color: #fefefe;
+  color: #0a1228;
 }
 
 .main-content {
@@ -24,12 +17,17 @@ header {
 }
 
 section {
-  background-color: #e4e4e4;
+  background-color: #dadfe3;
   width: 80vw;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
   text-align: center;
+}
+
+section h1 {
+  margin: 2vh;
+  font-size: 40px;
 }
 
 .search {
@@ -46,21 +44,45 @@ section {
 }
 
 .search-word-input {
-  width: 50vw
+  margin-top: 1rem;
+  width: 40vw
 }
 
 .search-options {
+  padding: 2;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  width: 100%;
+  gap: 5rem;
+}
+
+.search-options h2 {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.search-region, .search-industry {
+  width: 20vw;
 }
 
 .search-button {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
-  padding-right: 20px;
+  padding-top: 1rem;
+  padding-right: 5vw;
+}
+
+.desc-options {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.desc {
+  justify-content: center;
+  text-align: center;
 }
 
 .desc img {
