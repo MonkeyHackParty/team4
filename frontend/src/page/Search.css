@@ -7,7 +7,7 @@ body {
     background-color: #dadfe3;
     color: #0a1228;
   }
-  
+
   .main-content {
     display: flex;
     flex-direction: column;

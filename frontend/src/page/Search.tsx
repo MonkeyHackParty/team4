@@ -46,14 +46,7 @@ const App = () => {
     }
   };
   
-  
   return (
-    /*
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/results" element={<ResultsPage />} />
-    </Routes>
-    */
     <>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" sx={{backgroundColor: 'black'}}>
