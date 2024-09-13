@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from "react-router-dom";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
@@ -11,6 +12,8 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import CircularProgress from '@mui/material/CircularProgress';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 
 const style = {
     p: 0,
@@ -41,6 +44,20 @@ function CoInfo() {
 
     return (
         <>
+        {/* ヘッダー */}
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static" sx={{backgroundColor: 'black'}}>
+                <Toolbar variant="dense">
+                    <Typography variant="h6" color="inherit" component="div">
+                        <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                            BlackChecker
+                        </Link>
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        </Box>
+
+        {/* タイトル */}
         <Box sx={name}>
             <BusinessIcon sx={{fontSize: 60,paddingTop:1}}/>{/*企業アイコンでもあり。サイズは不安*/}
             <Typography variant="h2" gutterBottom>
@@ -51,50 +68,58 @@ function CoInfo() {
             </Typography>
         </Box>
 
+        
         <Box sx={{display: 'flex', margin: 10}}>
             <Box>
-            <Box sx={{ flex: 1, marginRight: 5 }}>
-                ◇◆◇データサイエンス界のNo.1コミュニティを目指しています◆◇◆―現在日本に1,000人程度しかいないデータサイエンティストを育成中！『世の中に求められる人材』を育成する当社で、自身のキャリアを描きませんか？"
-            </Box>
-
-            <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider',marginTop: 5 }}>
-                <TabList onChange={handleChange} aria-label="lab API tabs example">
-                    <Tab label="総合" value="1" />
-                    <Tab label="詳細" value="2" />
-                </TabList>
+                {/* 説明 */}
+                <Box sx={{ flex: 1, marginRight: 5}}>
+                    ◇◆◇データサイエンス界のNo.1コミュニティを目指しています◆◇◆―現在日本に1,000人程度しかいないデータサイエンティストを育成中！『世の中に求められる人材』を育成する当社で、自身のキャリアを描きませんか？"
                 </Box>
-
-                <TabPanel value="1">
-                <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
-                    <CircularProgress variant="determinate" value={50} size="12rem"/>
-                    <Box
-                        sx={{
-                            top: 0,
-                            left: 0,
-                            bottom: 0,
-                            right: 0,
-                            position: 'absolute',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}
+                
+                {/* ブラック評価 */}
+                <TabContext value={value}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider',marginTop: 5 }}>
+                    <TabList
+                        onChange={handleChange}
+                        aria-label="lab API tabs example"
+                        textColor="inherit" TabIndicatorProps={{sx: { backgroundColor: '#0a1228' } }}
                     >
-                        <Typography
-                            variant="caption"
-                            component="div"
-                            sx={{ color: 'text.secondary', fontSize:30 }}
-                        >
-                        50%
-                        </Typography>
+                        <Tab label="総合" value="1" sx={{ color: value === '1' ? '#0a1228' : 'text.secondary' }}/>
+                        <Tab label="詳細" value="2" sx={{ color: value === '2' ? '#0a1228' : 'text.secondary' }}/>
+                    </TabList>
                     </Box>
-                </Box>
-                </TabPanel>
 
-                <TabPanel value="2">なんか情報</TabPanel>
-            </TabContext>
+                    <TabPanel value="1">
+                    <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
+                        <CircularProgress variant="determinate" value={50} size="12rem" sx={{color:'#ffcc00'}}/>
+                        <Box
+                            sx={{
+                                top: 0,
+                                left: 0,
+                                bottom: 0,
+                                right: 0,
+                                position: 'absolute',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <Typography
+                                variant="caption"
+                                component="div"
+                                sx={{ color: 'text.secondary', fontSize:30 }}
+                            >
+                            50%
+                            </Typography>
+                        </Box>
+                    </Box>
+                    </TabPanel>
+
+                    <TabPanel value="2">なんか情報</TabPanel>
+                </TabContext>
             </Box>
             
+            {/* 基本情報 */}
             <List
                 sx={style}
                 aria-label="company-info"
