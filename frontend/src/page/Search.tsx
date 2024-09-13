@@ -5,8 +5,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Input, Button, Select, MenuItem } from '@mui/material';
 import { SelectChangeEvent } from '@mui/material';
-import './Search.css'
-import { postFetch } from '../gateway/rest/fetch';
+import './Search.css';
+import image1 from '../assets/image_rlt.png';
+import image2 from '../assets/image_info.png';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const App = () => {
@@ -35,7 +37,7 @@ const App = () => {
     };
 
     try {
-      const response = await postFetch('http://localhost:5173/api/job-listings/', requestData);
+      const response = await axios.post('http://localhost:5173/api/job-listings/', requestData);
       console.log('Search Results:', response);
       // 結果を処理するコード
       navigate('/result');
@@ -185,12 +187,12 @@ const App = () => {
         <h1>BlackCheckerとは</h1>
         <div className="desc-options">
           <div className='desc'>
-            <h2>ブラック率を算出</h2>
-            <img src='example'></img> //サイト画像を張り付け
+            <h2>ブラック企業である確率を算出</h2>
+            <img src={image1}></img>
           </div>
           <div className='desc'>
-            <h2>何がブラックかわかる</h2>
-            <img src='example'></img> //サイト画像を張り付け
+            <h2>企業の情報がすぐ見れる！</h2>
+            <img src={image2}></img>
           </div>
         </div>
       </section>

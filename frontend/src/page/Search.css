@@ -3,7 +3,6 @@ body {
     padding: 0;
     font-family: Arial, monospace;
     justify-content: center;
-    height: 100vh;
     text-align: center;
     background-color: #dadfe3;
     color: #0a1228;
@@ -80,7 +79,6 @@ body {
   }
   
   .desc-options {
-    display: flex;
     justify-content: center;
     gap: 4rem;
   }
@@ -103,7 +101,7 @@ body {
   }
   
   .desc img {
-    width: 300px;
+    width: 50vw;
     height: auto;
   }
   
