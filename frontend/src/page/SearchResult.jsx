@@ -171,4 +171,4 @@ export default function SearchResult() {
       </Box>
     </Box>
   );
-}
+};
