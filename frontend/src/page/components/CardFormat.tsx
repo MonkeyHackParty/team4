@@ -1,4 +1,5 @@
-import React from 'react';
+//CardFormat
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,10 +9,18 @@ import Circular from './Circular';
 import AccordionFormat from './AccordionFormat';
 import ToLink from './ToLink';
 
-export default function CardFormat({ Name, CLink, AccordionContent, BlackRate }) {
+
+interface CardFormatProps {
+  Name: string;
+  LinkCode?: string;
+  AccordionContent?: string;
+  BlackRate: number;
+}
+
+const CardFormat: React.FC<CardFormatProps> = ({ Name, LinkCode, AccordionContent, BlackRate }) => {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', width: '32.2%' }}>
-      <Card sx={{ minWidth: 275, width: '100%', display: 'flex', flexDirection: 'row' }}>
+      <Card sx={{ minWidth: 275, width: '100%', display: 'flex', flexDirection: 'row', backgroundColor: '#FFFFFF'}}>
         <Box sx={{ flex: 1, padding: 2 }}>
           <CardContent>
             <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
@@ -21,7 +30,7 @@ export default function CardFormat({ Name, CLink, AccordionContent, BlackRate })
               {Name}
             </Typography>
             <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-              {CLink && <ToLink CompanyLink={CLink}/>}
+              {LinkCode && <ToLink CompanyLink={LinkCode} />}
             </Typography>
           </CardContent>
           <CardActions>
@@ -34,4 +43,6 @@ export default function CardFormat({ Name, CLink, AccordionContent, BlackRate })
       </Card>
     </Box>
   );
-}
+};
+
+export default CardFormat;

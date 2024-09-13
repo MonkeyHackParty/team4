@@ -1,11 +1,99 @@
+//Result
 import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 import { Box, Typography } from '@mui/material';
-import ButtonAppBar from '../components/ButtonAppBar'
-import CardFormat from '../components/CardFormat'
-import Loading from '../components/Loading'
+import ButtonAppBar from './components/ButtonAppBar';
+import CardFormat from './components/CardFormat';
+import Loading from './components/Loading';
 
-const renderContentForPage = (pageNumber) => {
+const CardListPage1: React.FC = () => {
+  return (
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+      <CardFormat
+        Name="企業１"
+        LinkCode="Company-1"
+        AccordionContent="この企業はそこそこブラックですよ。"
+        BlackRate={23}
+      />
+      <CardFormat
+        Name="企業２"
+        LinkCode="Company-2"
+        AccordionContent="この企業は若干ホワイトそうです。"
+        BlackRate={64}
+      />
+      <CardFormat
+        Name="企業３"
+        LinkCode="Company-3"
+        AccordionContent="口癖が「どつきまわすぞ」。"
+        BlackRate={13}
+      />
+      <CardFormat
+        Name="企業４"
+        LinkCode="Company-4"
+        AccordionContent="くら寿司のパクリ。"
+        BlackRate={80}
+      />
+      <CardFormat
+        Name="企業５"
+        LinkCode="Company-5"
+        AccordionContent="ケチ。"
+        BlackRate={100}
+      />
+      <CardFormat
+        Name="企業６"
+        LinkCode="Company-6"
+        AccordionContent="ときどき落とし穴が仕掛けられている。"
+        BlackRate={46}
+      />
+    </Box>
+  );
+};
+
+const CardListPage2: React.FC = () => {
+  return (
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+      <CardFormat
+        Name="企業７"
+        LinkCode="Company-7"
+        AccordionContent="オフィスが廃墟。"
+        BlackRate={23}
+      />
+      <CardFormat
+        Name="企業８"
+        LinkCode="Company-8"
+        AccordionContent="クワガタの餌やり係だるい。"
+        BlackRate={64}
+      />
+      <CardFormat
+        Name="企業９"
+        LinkCode="Company-9"
+        AccordionContent="隣がヤクザの事務所。"
+        BlackRate={13}
+      />
+      <CardFormat
+        Name="企業１０"
+        LinkCode="Company-10"
+        AccordionContent="オフィスが４５階にあるがエレベーターがない。"
+        BlackRate={80}
+      />
+      <CardFormat
+        Name="企業１１"
+        LinkCode="Company-11"
+        AccordionContent="社長がはげてる。"
+        BlackRate={100}
+      />
+      <CardFormat
+        Name="企業１２"
+        LinkCode="Company-12"
+        AccordionContent="資料が全部手書き。"
+        BlackRate={46}
+      />
+    </Box>
+  );
+};
+
+
+const renderContentForPage = (pageNumber: number): JSX.Element => {
   switch (pageNumber) {
     case 1:
       return <CardListPage1 />;
@@ -32,113 +120,23 @@ const renderContentForPage = (pageNumber) => {
   }
 };
 
-const CardListPage1 = () => {
-    return (
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
-          <CardFormat
-           Name = "企業１"
-           CLink = "Company-1"
-           AccordionContent = "この企業はそこそこブラックですよ。" 
-           BlackRate = {23}
-          />
-          <CardFormat
-           Name = "企業２"
-           CLink = "Company-2"
-           AccordionContent = "この企業は若干ホワイトそうです。" 
-           BlackRate = {64}
-          />
-          <CardFormat
-           Name = "企業３"
-           CLink = "Company-3"
-           AccordionContent = "口癖が「どつきまわすぞ」。" 
-           BlackRate = {13}
-          />
-          <CardFormat
-           Name = "企業４"
-           CLink = "Company-4"
-           AccordionContent = "くら寿司のパクリ。" 
-           BlackRate = {80}
-          />
-          <CardFormat
-           Name = "企業５"
-           CLink = "Company-5"
-           AccordionContent = "ケチ。" 
-           BlackRate = {100}
-          />
-          <CardFormat
-           Name = "企業６"
-           CLink = "Company-6"
-           AccordionContent = "ときどき落とし穴が仕掛けられている。" 
-           BlackRate = {46}
-          />
-      </Box>
-    );
-  };
 
-const CardListPage2 = () => {
-  return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
-        <CardFormat
-         Name = "企業７"
-         CLink = "Company-7"
-         AccordionContent = "オフィスが廃墟。" 
-         BlackRate = {23}
-        />
-        <CardFormat
-         Name = "企業８"
-         CLink = "Company-8"
-         AccordionContent = "クワガタの餌やり係だるい。" 
-         BlackRate = {64}
-        />
-        <CardFormat
-         Name = "企業９"
-         CLink = "Company-9"
-         AccordionContent = "隣がヤクザの事務所。" 
-         BlackRate = {13}
-        />
-        <CardFormat
-         Name = "企業１０"
-         CLink = "Company-10"
-         AccordionContent = "オフィスが４５階にあるがエレベーターがない。" 
-         BlackRate = {80}
-        />
-        <CardFormat
-         Name = "企業１１"
-         CLink = "Company-11"
-         AccordionContent = "社長がはげてる。" 
-         BlackRate = {100}
-        />
-        <CardFormat
-         Name = "企業１２"
-         CLink = "Company-12"
-         AccordionContent = "資料が全部手書き。" 
-         BlackRate = {46}
-        />
-    </Box>
-  );
-};
+const SearchResult: React.FC = () => {
+  const [page, setPage] = React.useState<number>(1);
+  const [loading, setLoading] = React.useState<boolean>(false);
 
-//SearchResultの定義
-export default function SearchResult() {
-
-  //変数の定義
-  const [page, setPage] = React.useState(1);
-  const [loading, setLoading] = React.useState(false); // 追加
-  const handleChange = (event, value) => {
+  const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
     setLoading(true);
     setTimeout(() => {
-        setLoading(false); // 遅延後に読み込み中状態を解除
-      }, 2000); // 3秒の遅延
+      setLoading(false);
+    }, 2000);
   };
-  
-  //returnの定義
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      {/* ヘッダー部分 */}
       <ButtonAppBar />
 
-      {/* コンテンツ部分 */}
       <Box sx={{ flex: 1, mt: 3, ml: 1, mb: '60px', px: 2 }}>
         {loading ? (
           <Loading />
@@ -147,7 +145,6 @@ export default function SearchResult() {
         )}
       </Box>
 
-      {/* フッター部分（Pagination） */}
       <Box
         component="footer"
         sx={{
@@ -162,7 +159,7 @@ export default function SearchResult() {
         }}
       >
         <Pagination
-          count={2}
+          count={2} //ページ数の変更はこちら
           variant="outlined"
           color="primary"
           page={page}
@@ -172,3 +169,5 @@ export default function SearchResult() {
     </Box>
   );
 };
+
+export default SearchResult;
