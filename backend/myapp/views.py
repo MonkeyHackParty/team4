@@ -1,35 +1,25 @@
-from rest_framework import viewsets
-from .models import JobListing
-from .serializers import JobListingSerializer
+import requests
+import json
+import os
+from dotenv import load_dotenv
 
-class JobListingViewSet(viewsets.ModelViewSet):
-    queryset = JobListing.objects.all()
-    serializer_class = JobListingSerializer
+load_dotenv()
 
-    def get_queryset(self):
-        queryset = JobListing.objects.all()
-        name = self.request.query_params.get('name')
-        prefecture = self.request.query_params.get('prefecture')
-        industry_code = self.request.query_params.get('industry_code')
-        corporation_id = self.request.query_params.get('corporation_id')
 
-        if name:
-            queryset = queryset.filter(name__icontains=name)
-        
-        if prefecture:
-            queryset = queryset.filter(prefecture__icontains=prefecture)
+Lowest_price = input("最低価格 ----> ")
+Highest_price = input("最高価格 ----> ")
+item_name = input('キーワード-->')
 
-        if industry_code:
-            queryset = queryset.filter(industry_code__icontains=industry_code)
+appid = "(os)"
+url = 'https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid={}&price_from={}&price_to={}&query={}&results=100'.format(appid, Lowest_price, Highest_price, item_name)
+call = requests.get(url)
+res_dict = json.loads(call.content)
+count = len(res_dict['hits'])
 
-        if corporation_id:
-            queryset = queryset.filter(corporation_id=corporation_id)
-
-        seen_names = set()
-        unique_listings = []
-        for listing in queryset:
-            if listing.name not in seen_names:
-                unique_listings.append(listing)
-                seen_names.add(listing.name)
-
-        return unique_listings[:100]  # 最大100件に制限
+for i in range(count):
+   print("商品名：", res_dict['hits'][i]['name'])
+   print("説明：", res_dict['hits'][i]['description'])
+   print("価格：", res_dict['hits'][i]['price'])
+   print("商品コード：", res_dict['hits'][i]['code'])
+   print("JANコード：", res_dict['hits'][i]['janCode'])
+   print("商品URL", res_dict['hits'][i]['url'])
