@@ -38,6 +38,7 @@ export default function Circular(props) {
           variant="determinate"
           sx={{
             position: 'absolute',
+            color:'#fdf626',
           }}
           {...props}
         />

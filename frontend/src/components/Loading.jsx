@@ -9,10 +9,10 @@ export default function CircularIndeterminate() {
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'center', 
-        height: '70vh'
+        height: '70vh',
       }}
     >
-      <CircularProgress />
+      <CircularProgress sx={{color:'#e4e4e4'}}/>
     </Box>
   );
 }
