@@ -1,22 +1,18 @@
-"""
-URL configuration for backend project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('api/', include('myapp.urls')),
 ]
+
+# https://qiita.com/Bashi50/items/9e1d62c4159f065b662b#2214-limit-%E5%8F%96%E5%BE%97%E6%95%B0%E3%82%92%E6%8C%87%E5%AE%9A
+
+# /api/job-listing/search?query=〇〇株式会社
+# queryset = JobListing.objects.filter(name__contains='〇〇株式会社')
+
+# /api/job-listing?page=2
+# queryset = JobListing.objects.all()[:100]
+# queryset = JobListing.objects.all()[101:100]
+# queryset = JobListing.objects.all()[100 * (page - 1) + 1:100]
+
