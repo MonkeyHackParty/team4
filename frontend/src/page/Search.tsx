@@ -4,10 +4,9 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Input, Button, Select, MenuItem } from '@mui/material';
-import './Search.css'
+import { SelectChangeEvent } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
+import './Search.css'
 
 const App = () => {
     const [keyword, setKeyword] = React.useState('');
@@ -15,33 +14,27 @@ const App = () => {
     const [industry, setIndustry] = React.useState('');
     const navigate = useNavigate();
   
-    const handleKeywordChange = (e) => {
-      if (e && e.target) {
-        setKeyword(e.target.value);
-      }
-    };
-  
-    const handleRegionChange = (event) => {
-      setRegion(event.target.value);
-    };
-  
-    const handleIndustryChange = (event) => {
-      setIndustry(event.target.value);
-    };
-  
-    const handleSubmit = async () => {
-      try {
-        const response = await axios.post('YOUR_BACKEND_URL', {
-          keyword,
-          region,
-          industry,
-        });
-        navigate('/results', { state: { data: response.data } });
-      } catch (error) {
-        console.error('Error during submission:', error);
-      }
-    };
+    const handleKeywordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setKeyword(e.target.value);
+  };
 
+  const handleRegionChange = (event: SelectChangeEvent<string>) => {
+    setRegion(event.target.value as string);
+  };
+  
+  const handleIndustryChange = (event: SelectChangeEvent<string>) => {
+    setIndustry(event.target.value as string);
+  };
+
+  const handleSubmit = () => {
+    const queryParams = new URLSearchParams();
+    if (keyword) queryParams.append("keyword", keyword);
+    if (region) queryParams.append("region", region);
+    if (industry) queryParams.append("industry", industry);
+  
+    navigate(`/results?${queryParams.toString()}`);
+  };
+  
   return (
     /*
     <Routes>
@@ -166,16 +159,16 @@ const App = () => {
           </div>
         </div>
         <div className="search-button">
-        <Button
-          sx={{
-            width: 100,
-            backgroundColor: '#1760a0',
-            color: 'white'
-          }}
-          onClick={handleSubmit}
-        >
-          検索
-        </Button>
+            <Button
+            sx={{
+                width: 100,
+                backgroundColor: '#1760a0',
+                color: 'white'
+            }}
+            onClick={handleSubmit}
+            >
+            検索
+            </Button>
         </div>
       </section>
       <section className='detailed-description'>  {/* ページの詳細な説明 */}
