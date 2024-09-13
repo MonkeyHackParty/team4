@@ -12,7 +12,7 @@ export default function CircularIndeterminate() {
         height: '70vh',
       }}
     >
-      <CircularProgress sx={{color:'#e4e4e4'}}/>
+      <CircularProgress sx={{color:'#1760a0'}}/>
     </Box>
   );
 }
