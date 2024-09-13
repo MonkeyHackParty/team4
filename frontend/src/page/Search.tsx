@@ -31,13 +31,13 @@ const App = () => {
 
   const handleSubmit = async () => {
     const requestData = {
-      keyword,
-      region,
-      industry,
+      name: keyword,
+      prefecture: region,
+      industry_code: industry
     };
 
     try {
-      const response = await axios.post('http://localhost:5173/api/job-listings/', requestData);
+      const response = await axios.post('http://127.0.0.1:8000/api/job-listings/', requestData);
       console.log('Search Results:', response);
       // 結果を処理するコード
       navigate('/result');
