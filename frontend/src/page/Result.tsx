@@ -91,7 +91,7 @@ const CardListPage2: React.FC = () => {
   );
 };
 
-// renderContentForPage の戻り値の型を定義します。
+
 const renderContentForPage = (pageNumber: number): JSX.Element => {
   switch (pageNumber) {
     case 1:
@@ -119,7 +119,7 @@ const renderContentForPage = (pageNumber: number): JSX.Element => {
   }
 };
 
-// SearchResult コンポーネントの型を定義します。
+
 const SearchResult: React.FC = () => {
   const [page, setPage] = React.useState<number>(1);
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -158,7 +158,7 @@ const SearchResult: React.FC = () => {
         }}
       >
         <Pagination
-          count={2} // ここは表示するページ数に合わせて調整してください
+          count={2} //ページ数の変更はこちら
           variant="outlined"
           color="primary"
           page={page}

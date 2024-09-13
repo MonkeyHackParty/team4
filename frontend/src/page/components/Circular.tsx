@@ -3,10 +3,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
 
-// propsの型定義
+
 interface CircularProps {
-  value: number; // CircularProgressに渡す値
-  // 必要に応じて他のプロパティを追加
+  value: number; 
 }
 
 const Circular: React.FC<CircularProps> = (props) => {
@@ -19,8 +18,6 @@ const Circular: React.FC<CircularProps> = (props) => {
           color: 'text.secondary',
           fontSize: '1rem',
           position: 'absolute',
-          //top: '10%',
-          //left: '50%',
           transform: 'translate(-50%, -370%)',
         }}
       >
@@ -45,7 +42,7 @@ const Circular: React.FC<CircularProps> = (props) => {
             position: 'absolute',
             color: '#fdf626',
           }}
-          {...props} // 型安全のために具体的なプロパティに制限がある場合は、propsを指定する
+          {...props} 
         />
         <Box
           sx={{

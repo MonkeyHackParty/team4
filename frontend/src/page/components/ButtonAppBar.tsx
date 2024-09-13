@@ -2,15 +2,22 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
+import { Box } from '@mui/material'
+import { useNavigate } from 'react-router-dom';
 
-// ButtonAppBar コンポーネントの型定義
+
 const ButtonAppBar: React.FC = () => {
+
+  const navigate = useNavigate();
+const HomeTransfer = () =>{
+  navigate('/');
+};
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position="static" sx={{ backgroundColor: 'black' }}>
-        <Toolbar variant="dense">
-          <Typography variant="h6" color="inherit" component="div">
+        <Toolbar variant="dense" sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant="h6" component="div" onClick={HomeTransfer}>
             BlackChecker
           </Typography>
         </Toolbar>

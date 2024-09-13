@@ -8,7 +8,7 @@ import Circular from './Circular';
 import AccordionFormat from './AccordionFormat';
 import ToLink from './ToLink';
 
-// propsの型定義
+
 interface CardFormatProps {
   Name: string;
   CLink?: string;
