@@ -66,21 +66,25 @@ function CoInfo() {
 
         <Box sx={{display: 'flex', margin: 10}}>
             <Box>
-            <Box sx={{ flex: 1, marginRight: 5 }}>
+            <Box sx={{ flex: 1, marginRight: 5}}>
                 ◇◆◇データサイエンス界のNo.1コミュニティを目指しています◆◇◆―現在日本に1,000人程度しかいないデータサイエンティストを育成中！『世の中に求められる人材』を育成する当社で、自身のキャリアを描きませんか？"
             </Box>
 
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider',marginTop: 5 }}>
-                <TabList onChange={handleChange} aria-label="lab API tabs example">
-                    <Tab label="総合" value="1" />
-                    <Tab label="詳細" value="2" />
+                <TabList 
+                    onChange={handleChange}
+                    aria-label="lab API tabs example"
+                    textColor="inherit" TabIndicatorProps={{sx: { backgroundColor: '#000' } }}
+                >
+                    <Tab label="総合" value="1" sx={{ color: value === '1' ? '#000' : 'text.secondary' }}/>
+                    <Tab label="詳細" value="2" sx={{ color: value === '2' ? '#000' : 'text.secondary' }}/>
                 </TabList>
                 </Box>
 
                 <TabPanel value="1">
                 <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
-                    <CircularProgress variant="determinate" value={50} size="12rem"/>
+                    <CircularProgress variant="determinate" value={50} size="12rem" sx={{color:'#fdf626'}}/>
                     <Box
                         sx={{
                             top: 0,
