@@ -5,15 +5,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Input, Button, Select, MenuItem } from '@mui/material';
 import { SelectChangeEvent } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 import './Search.css'
+import { postFetch } from '../gateway/rest/fetch';
+import { useNavigate } from 'react-router-dom';
 
 const App = () => {
     const [keyword, setKeyword] = React.useState('');
     const [region, setRegion] = React.useState('');
     const [industry, setIndustry] = React.useState('');
     const navigate = useNavigate();
-  
+    
     const handleKeywordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setKeyword(e.target.value);
   };
@@ -26,14 +27,23 @@ const App = () => {
     setIndustry(event.target.value as string);
   };
 
-  const handleSubmit = () => {
-    const queryParams = new URLSearchParams();
-    if (keyword) queryParams.append("keyword", keyword);
-    if (region) queryParams.append("region", region);
-    if (industry) queryParams.append("industry", industry);
-  
-    navigate(`/results?${queryParams.toString()}`);
+  const handleSubmit = async () => {
+    const requestData = {
+      keyword,
+      region,
+      industry,
+    };
+
+    try {
+      const response = await postFetch('http://localhost:5173/api/job-listings/', requestData);
+      console.log('Search Results:', response);
+      // 結果を処理するコード
+      navigate('/result');
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
+  
   
   return (
     /*
