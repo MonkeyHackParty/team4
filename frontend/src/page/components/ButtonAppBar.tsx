@@ -8,9 +8,9 @@ import { Box } from '@mui/material';
 const ButtonAppBar: React.FC = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: '#0a1228' }}>
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+      <AppBar position="static" sx={{ backgroundColor: '#000000' }}>
+        <Toolbar sx={{ height:'30',padding:'0'}}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 ,textAlign: 'left'}}>
             BlackChecker
           </Typography>
         </Toolbar>

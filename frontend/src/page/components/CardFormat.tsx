@@ -19,7 +19,7 @@ interface CardFormatProps {
 const CardFormat: React.FC<CardFormatProps> = ({ Name, CLink, AccordionContent, BlackRate }) => {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', width: '32.2%' }}>
-      <Card sx={{ minWidth: 275, width: '100%', display: 'flex', flexDirection: 'row' }}>
+      <Card sx={{ minWidth: 275, width: '100%', display: 'flex', flexDirection: 'row', backgroundColor: '#E4E4E4'}}>
         <Box sx={{ flex: 1, padding: 2 }}>
           <CardContent>
             <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
