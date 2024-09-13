@@ -7,10 +7,11 @@ interface ToLinkProps {
   CompanyLink: string;
 }
 
-
-const preventDefault = (event: React.MouseEvent) => event.preventDefault();
-
 const ToLink: React.FC<ToLinkProps> = ({ CompanyLink }) => {
+
+  const LinkHref = `/information?${encodeURIComponent(CompanyLink)}`;
+
+
   return (
     <Box
       sx={{
@@ -19,9 +20,8 @@ const ToLink: React.FC<ToLinkProps> = ({ CompanyLink }) => {
           ml: 2,
         },
       }}
-      onClick={preventDefault}
     >
-      <Link href={CompanyLink}>詳細はこちら</Link>
+      <Link href={LinkHref}>詳細はこちら</Link>
     </Box>
   );
 };

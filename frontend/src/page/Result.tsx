@@ -10,37 +10,37 @@ const CardListPage1: React.FC = () => {
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
       <CardFormat
         Name="企業１"
-        CLink="Company-1"
+        LinkCode="Company-1"
         AccordionContent="この企業はそこそこブラックですよ。"
         BlackRate={23}
       />
       <CardFormat
         Name="企業２"
-        CLink="Company-2"
+        LinkCode="Company-2"
         AccordionContent="この企業は若干ホワイトそうです。"
         BlackRate={64}
       />
       <CardFormat
         Name="企業３"
-        CLink="Company-3"
+        LinkCode="Company-3"
         AccordionContent="口癖が「どつきまわすぞ」。"
         BlackRate={13}
       />
       <CardFormat
         Name="企業４"
-        CLink="Company-4"
+        LinkCode="Company-4"
         AccordionContent="くら寿司のパクリ。"
         BlackRate={80}
       />
       <CardFormat
         Name="企業５"
-        CLink="Company-5"
+        LinkCode="Company-5"
         AccordionContent="ケチ。"
         BlackRate={100}
       />
       <CardFormat
         Name="企業６"
-        CLink="Company-6"
+        LinkCode="Company-6"
         AccordionContent="ときどき落とし穴が仕掛けられている。"
         BlackRate={46}
       />
@@ -53,37 +53,37 @@ const CardListPage2: React.FC = () => {
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
       <CardFormat
         Name="企業７"
-        CLink="Company-7"
+        LinkCode="Company-7"
         AccordionContent="オフィスが廃墟。"
         BlackRate={23}
       />
       <CardFormat
         Name="企業８"
-        CLink="Company-8"
+        LinkCode="Company-8"
         AccordionContent="クワガタの餌やり係だるい。"
         BlackRate={64}
       />
       <CardFormat
         Name="企業９"
-        CLink="Company-9"
+        LinkCode="Company-9"
         AccordionContent="隣がヤクザの事務所。"
         BlackRate={13}
       />
       <CardFormat
         Name="企業１０"
-        CLink="Company-10"
+        LinkCode="Company-10"
         AccordionContent="オフィスが４５階にあるがエレベーターがない。"
         BlackRate={80}
       />
       <CardFormat
         Name="企業１１"
-        CLink="Company-11"
+        LinkCode="Company-11"
         AccordionContent="社長がはげてる。"
         BlackRate={100}
       />
       <CardFormat
         Name="企業１２"
-        CLink="Company-12"
+        LinkCode="Company-12"
         AccordionContent="資料が全部手書き。"
         BlackRate={46}
       />
