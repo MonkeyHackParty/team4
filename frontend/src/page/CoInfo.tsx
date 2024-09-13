@@ -72,19 +72,19 @@ function CoInfo() {
 
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider',marginTop: 5 }}>
-                <TabList 
+                <TabList
                     onChange={handleChange}
                     aria-label="lab API tabs example"
-                    textColor="inherit" TabIndicatorProps={{sx: { backgroundColor: '#000' } }}
+                    textColor="inherit" TabIndicatorProps={{sx: { backgroundColor: '#0a1228' } }}
                 >
-                    <Tab label="総合" value="1" sx={{ color: value === '1' ? '#000' : 'text.secondary' }}/>
-                    <Tab label="詳細" value="2" sx={{ color: value === '2' ? '#000' : 'text.secondary' }}/>
+                    <Tab label="総合" value="1" sx={{ color: value === '1' ? '#0a1228' : 'text.secondary' }}/>
+                    <Tab label="詳細" value="2" sx={{ color: value === '2' ? '#0a1228' : 'text.secondary' }}/>
                 </TabList>
                 </Box>
 
                 <TabPanel value="1">
                 <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
-                    <CircularProgress variant="determinate" value={50} size="12rem" sx={{color:'#fdf626'}}/>
+                    <CircularProgress variant="determinate" value={50} size="12rem" sx={{color:'#ffcc00'}}/>
                     <Box
                         sx={{
                             top: 0,
