@@ -11,6 +11,8 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import CircularProgress from '@mui/material/CircularProgress';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 
 const style = {
     p: 0,
@@ -41,6 +43,17 @@ function CoInfo() {
 
     return (
         <>
+
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static" sx={{backgroundColor: 'black'}}>
+                <Toolbar variant="dense">
+                    <Typography variant="h6" color="inherit" component="div">
+                        BlackChecker
+                    </Typography>
+                </Toolbar>
+            </AppBar>
+        </Box>
+
         <Box sx={name}>
             <BusinessIcon sx={{fontSize: 60,paddingTop:1}}/>{/*企業アイコンでもあり。サイズは不安*/}
             <Typography variant="h2" gutterBottom>
