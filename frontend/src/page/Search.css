@@ -1,69 +1,109 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, monospace;
     justify-content: center;
     height: 100vh;
     text-align: center;
-}
+    background-color: #dadfe3;
+    color: #0a1228;
+  }
   
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    width: 100%;
-    font-size: 24px;
-    padding: 10px 0;
-}
-  
-.main-content {
+  .main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-}
+  }
   
-section {
-    background-color: #e4e4e4;
+  section {
+    background-color: white;
     width: 80vw;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     text-align: center;
-}
+  }
   
-.search {
+  section h1 {
+    margin: 2vh;
+    font-size: 40px;
+  }
+  
+  .search {
     display: flex;
     flex-direction: column;
     position: relative;
-}
+  }
   
-.search-word {
+  .search-word {
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-}
+  }
   
-.search-word-input {
-    width: 50vw
-}
+  .search-word-input {
+    margin-top: 1rem;
+    width: 40vw
+  }
   
-.search-options {
+  .search-options {
+    padding: 2;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    width: 100%;
-}
+    gap: 1vw;
+  }
   
-.search-button {
+  .search-options h2 {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 20px;
+  }
+  
+  .search-region, .search-industry {
+    width: 20vw;
+  }
+  
+  .search-select {
+    height: 5vh;
+    width: 19vw;
+  }
+  
+  .search-button {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
-    padding-right: 20px;
-}
+    padding-top: 1rem;
+    padding-right: 5vw;
+  }
   
-.desc img {
+  .desc-options {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+  
+  .desc {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  section h1 {
+    margin: 2vh;
+    font-size: 40px;
+  }
+  
+  .desc h2 {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+  
+  .desc img {
     width: 300px;
     height: auto;
-}
+  }
+  
