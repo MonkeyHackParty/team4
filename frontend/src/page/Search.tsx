@@ -1,38 +1,38 @@
 import * as React from "react";
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { Input, Button, Select, MenuItem } from '@mui/material';
-import { SelectChangeEvent } from '@mui/material';
-import './Search.css';
-import image1 from '../assets/image_rlt.png';
-import image2 from '../assets/image_info.png';
-import { useNavigate } from 'react-router-dom';
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { Input, Button, Select, MenuItem } from "@mui/material";
+import { SelectChangeEvent } from "@mui/material";
+import "./Search.css";
+import image1 from "../assets/image_rlt.png";
+import image2 from "../assets/image_info.png";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
-    const [keyword, setKeyword] = React.useState('');
-    const [region, setRegion] = React.useState('');
-    const [industry, setIndustry] = React.useState('');
-    const navigate = useNavigate();
-    
-    const handleKeywordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setKeyword(e.target.value);
+  const [name, setName] = React.useState("");
+  const [prefecture, setPrefecture] = React.useState("");
+  const [industryCode, setIndustryCode] = React.useState("");
+  const navigate = useNavigate();
+
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
   };
 
-  const handleRegionChange = (event: SelectChangeEvent<string>) => {
-    setRegion(event.target.value as string);
+  const handlePrefectureChange = (event: SelectChangeEvent<string>) => {
+    setPrefecture(event.target.value as string);
   };
-  
-  const handleIndustryChange = (event: SelectChangeEvent<string>) => {
-    setIndustry(event.target.value as string);
+
+  const handleIndustryCodeChange = (event: SelectChangeEvent<string>) => {
+    setIndustryCode(event.target.value as string);
   };
 
   const handleSubmit = async () => {
     const queryString = new URLSearchParams({
-      keyword,
-      region,
-      industry,
+      name,
+      prefecture,
+      industryCode,
     }).toString();
 
     navigate(`/result?${queryString}`);
@@ -41,7 +41,7 @@ const App = () => {
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" sx={{backgroundColor: 'black'}}>
+        <AppBar position="static" sx={{ backgroundColor: "black" }}>
           <Toolbar variant="dense">
             <Typography variant="h6" color="inherit" component="div">
               BlackChecker
@@ -49,31 +49,31 @@ const App = () => {
           </Toolbar>
         </AppBar>
       </Box>
-    <main className='main-content'>
-      <section className='search'>
-        <h1>企業を検索する</h1>
-        <div className="search-word">
-          <Input
-            className="search-word-input"
-            placeholder="キーワードを入力"
-            //variant="soft"
-            value={keyword}
-            onChange={handleKeywordChange} // Update keyword state
-            sx={{ backgroundColor: "#ebf0f4", borderRadius: 2 }}
-          />
-        </div>
-        <div className="search-options">
-          <div className="search-region">
-            <h2>都道府県からさがす</h2>
-            <Select
+      <main className="main-content">
+        <section className="search">
+          <h1>企業を検索する</h1>
+          <div className="search-word">
+            <Input
+              className="search-word-input"
+              placeholder="キーワードを入力"
+              //variant="soft"
+              value={name}
+              onChange={handleNameChange} // Update name state
+              sx={{ backgroundColor: "#ebf0f4", borderRadius: 2 }}
+            />
+          </div>
+          <div className="search-options">
+            <div className="search-prefecture">
+              <h2>都道府県からさがす</h2>
+              <Select
                 className="search-select"
                 displayEmpty
-                value={region}
-                onChange={handleRegionChange}
+                value={prefecture}
+                onChange={handlePrefectureChange}
                 sx={{ backgroundColor: "#ebf0f4", borderRadius: 2 }}
-            >
+              >
                 <MenuItem value="">
-                    <em>都道府県を選択</em>
+                  <em>都道府県を選択</em>
                 </MenuItem>
                 <MenuItem value="北海道">北海道</MenuItem>
                 <MenuItem value="青森県">青森県</MenuItem>
@@ -122,71 +122,73 @@ const App = () => {
                 <MenuItem value="宮崎県">宮崎県</MenuItem>
                 <MenuItem value="鹿児島県">鹿児島県</MenuItem>
                 <MenuItem value="沖縄県">沖縄県</MenuItem>
-            </Select>
-          </div>
-          <div className="search-industry">
-            <h2>業種からさがす</h2>
-            <Select
+              </Select>
+            </div>
+            <div className="search-industryCode">
+              <h2>業種からさがす</h2>
+              <Select
                 className="search-select"
                 displayEmpty
-                value={industry}
-                onChange={handleIndustryChange}
+                value={industryCode}
+                onChange={handleIndustryCodeChange}
                 sx={{ backgroundColor: "#ebf0f4", borderRadius: 2 }}
-            >
+              >
                 <MenuItem value="">
-                <em>業種を選択</em>
+                  <em>業種を選択</em>
                 </MenuItem>
-                <MenuItem value="農業、林業">農業・林業</MenuItem>
-                <MenuItem value="漁業">漁業</MenuItem>
-                <MenuItem value="鉱業，採石業，砂利採取業">鉱業・採石業・砂利採取業</MenuItem>
-                <MenuItem value="建設業">建設業</MenuItem>
-                <MenuItem value="製造業">製造業</MenuItem>
-                <MenuItem value="電気・ガス・熱供給・水道業">電気・ガス・熱供給・水道業</MenuItem>
-                <MenuItem value="情報通信業">情報通信業</MenuItem>
-                <MenuItem value="運輸業，郵便業">運輸業・郵便業</MenuItem>
-                <MenuItem value="卸売業，小売業">卸売業・小売業</MenuItem>
-                <MenuItem value="金融業，保険業">金融業・保険業</MenuItem>
-                <MenuItem value="不動産業，物品賃貸業">不動産業・物品賃貸業</MenuItem>
-                <MenuItem value="学術研究，専門・技術サービス業">学術研究・専門・技術サービス業</MenuItem>
-                <MenuItem value="宿泊業，飲食サービス業">宿泊業・飲食サービス業</MenuItem>
-                <MenuItem value="生活関連サービス業，娯楽業">生活関連サービス業・娯楽業</MenuItem>
-                <MenuItem value="教育，学習支援業">教育・学習支援業</MenuItem>
-                <MenuItem value="医療，福祉">医療・福祉</MenuItem>
-                <MenuItem value="複合サービス事業">複合サービス事業</MenuItem>
-                <MenuItem value="サービス業（他に分類されないもの）">その他のサービス業</MenuItem>
-                <MenuItem value="公務（他に分類されるものを除く）">その他の公務</MenuItem>
-                <MenuItem value="分類不能の産業">その他</MenuItem>
-            </Select>
+                <MenuItem value="A">農業・林業</MenuItem>
+                <MenuItem value="B">漁業</MenuItem>
+                <MenuItem value="B">鉱業・採石業・砂利採取業</MenuItem>
+                <MenuItem value="D">建設業</MenuItem>
+                <MenuItem value="E">製造業</MenuItem>
+                <MenuItem value="F">電気・ガス・熱供給・水道業</MenuItem>
+                <MenuItem value="G">情報通信業</MenuItem>
+                <MenuItem value="H">運輸業・郵便業</MenuItem>
+                <MenuItem value="I">卸売業・小売業</MenuItem>
+                <MenuItem value="J">金融業・保険業</MenuItem>
+                <MenuItem value="K">不動産業・物品賃貸業</MenuItem>
+                <MenuItem value="L">学術研究・専門・技術サービス業</MenuItem>
+                <MenuItem value="M">宿泊業・飲食サービス業</MenuItem>
+                <MenuItem value="N">生活関連サービス業・娯楽業</MenuItem>
+                <MenuItem value="O">教育・学習支援業</MenuItem>
+                <MenuItem value="P">医療・福祉</MenuItem>
+                <MenuItem value="Q">複合サービス事業</MenuItem>
+                <MenuItem value="R">その他のサービス業</MenuItem>
+                <MenuItem value="S">その他の公務</MenuItem>
+                <MenuItem value="T">その他</MenuItem>
+              </Select>
+            </div>
           </div>
-        </div>
-        <div className="search-button">
+          <div className="search-button">
             <Button
-            sx={{
+              sx={{
                 width: 100,
-                backgroundColor: '#1760a0',
-                color: 'white'
-            }}
-            onClick={handleSubmit}
+                backgroundColor: "#1760a0",
+                color: "white",
+              }}
+              onClick={handleSubmit}
             >
-            検索
+              検索
             </Button>
-        </div>
-      </section>
-      <section className='detailed-description'>  {/* ページの詳細な説明 */}
-        <h1>BlackCheckerとは</h1>
-        <div className="desc-options">
-          <div className='desc'>
-            <h2>ブラック企業である確率を算出</h2>
-            <img src={image1}></img>
           </div>
-          <div className='desc'>
-            <h2>企業の情報がすぐ見れる！</h2>
-            <img src={image2}></img>
+        </section>
+        <section className="detailed-description">
+          {" "}
+          {/* ページの詳細な説明 */}
+          <h1>BlackCheckerとは</h1>
+          <div className="desc-options">
+            <div className="desc">
+              <h2>ブラック企業である確率を算出</h2>
+              <img src={image1}></img>
+            </div>
+            <div className="desc">
+              <h2>企業の情報がすぐ見れる！</h2>
+              <img src={image2}></img>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
-  </>
+        </section>
+      </main>
+    </>
   );
 };
 
