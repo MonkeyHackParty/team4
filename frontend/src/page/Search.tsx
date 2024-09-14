@@ -8,7 +8,6 @@ import { SelectChangeEvent } from '@mui/material';
 import './Search.css';
 import image1 from '../assets/image_rlt.png';
 import image2 from '../assets/image_info.png';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const App = () => {
@@ -30,22 +29,15 @@ const App = () => {
   };
 
   const handleSubmit = async () => {
-    const requestData = {
-      name: keyword,
-      prefecture: region,
-      industry_code: industry
-    };
+    const queryString = new URLSearchParams({
+      keyword,
+      region,
+      industry,
+    }).toString();
 
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/api/job-listings/', requestData);
-      console.log('Search Results:', response);
-      // 結果を処理するコード
-      navigate('/result');
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    navigate(`/results?${queryString}`);
   };
-  
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>

@@ -5,8 +5,16 @@ import { Box, Typography } from '@mui/material';
 import ButtonAppBar from './components/ButtonAppBar';
 import CardFormat from './components/CardFormat';
 import Loading from './components/Loading';
+import { useLocation } from 'react-router-dom';
 
 const CardListPage1: React.FC = () => {
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+
+  const keyword = query.get('keyword') || '';
+  const region = query.get('region') || '';
+  const industry = query.get('industry') || '';
+
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
       <CardFormat
