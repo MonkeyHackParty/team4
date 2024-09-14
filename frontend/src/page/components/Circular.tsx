@@ -10,6 +10,14 @@ interface CircularProps {
 }
 
 const Circular: React.FC<CircularProps> = (props) => {
+
+  //変更点１（パーセントに合わせて色の変更）
+  const getColor = (value: number) => {
+    if (0 <= value && value < 40) return '#565b95'; // Deep Green
+    if (40 <= value && value < 80) return '#ffcc00'; // Yellow
+    if (80 <= value && value <= 100) return '#e23b12'; // Red
+  };
+
   return (
     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
       <Typography
@@ -41,7 +49,8 @@ const Circular: React.FC<CircularProps> = (props) => {
           variant="determinate"
           sx={{
             position: 'absolute',
-            color:'#ffcc00'
+            //変更点２
+            color:getColor(props.value)
           }}
           {...props}
         />

@@ -6,11 +6,12 @@ import Link from '@mui/material/Link';
 
 interface ToLinkProps {
   CompanyLink: string;
+  BlackRate: number;
 }
 
-const ToLink: React.FC<ToLinkProps> = ({ CompanyLink }) => {
+const ToLink: React.FC<ToLinkProps> = ({ CompanyLink ,BlackRate }) => {
 
-  const LinkHref = `/information?${encodeURIComponent(CompanyLink)}`;
+  const LinkHref = `/information?CompanyLink=${encodeURIComponent(CompanyLink)}&BlackRate=${encodeURIComponent(BlackRate)}`;
 
 
   return (

@@ -30,7 +30,7 @@ const CardFormat: React.FC<CardFormatProps> = ({ Name, LinkCode, AccordionConten
               {Name}
             </Typography>
             <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-              {LinkCode && <ToLink CompanyLink={LinkCode} />}
+              {LinkCode && <ToLink CompanyLink={LinkCode} BlackRate={BlackRate} />}
             </Typography>
           </CardContent>
           <CardActions>

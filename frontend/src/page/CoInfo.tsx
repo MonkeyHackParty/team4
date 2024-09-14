@@ -35,13 +35,24 @@ const name = {
     display:'flex',
     gap: 2,
 };
+//Coinfo
+const urlParams = new URLSearchParams(window.location.search);
+const BlackRateBefore = urlParams.get('BlackRate');
+const BlackRate = BlackRateBefore ? parseInt(BlackRateBefore, 10) : NaN;
 
 function CoInfo() {
     const [value, setValue] = React.useState('1');
 
-    const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
-};
+    };
+
+    //変更点１（パーセントに合わせて色の変更）
+    const getColor = (value: number) => {
+    if (0 <= value && value < 40) return '#565b95'; // Deep Green
+    if (40 <= value && value < 80) return '#ffcc00'; // Yellow
+    if (80 <= value && value <= 100) return '#e23b12'; // Red
+    };
 
     return (
         <>
@@ -87,7 +98,7 @@ function CoInfo() {
                         </Box>
 
                         <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
-                            <CircularProgress variant="determinate" value={50} size="12rem" sx={{color:'#ffcc00'}}/>
+                            <CircularProgress variant="determinate" value={BlackRate} size="12rem" sx={{color:getColor(BlackRate)}}/>
                             <Box
                                 sx={{
                                     top: 0,
@@ -105,7 +116,7 @@ function CoInfo() {
                                     component="div"
                                     sx={{ color: 'text.secondary', fontSize:30 }}
                                 >
-                                50%
+                                {BlackRate}%
                                 </Typography>
                             </Box>
                         </Box>

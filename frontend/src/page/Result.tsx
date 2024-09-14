@@ -19,13 +19,13 @@ const CardListPage1: React.FC = () => {
         Name="企業２"
         LinkCode="Company-2"
         AccordionContent="この企業は若干ホワイトそうです。"
-        BlackRate={64}
+        BlackRate={45}
       />
       <CardFormat
         Name="企業３"
         LinkCode="Company-3"
         AccordionContent="口癖が「どつきまわすぞ」。"
-        BlackRate={13}
+        BlackRate={62}
       />
       <CardFormat
         Name="企業４"
