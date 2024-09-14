@@ -12,6 +12,10 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import CircularProgress from '@mui/material/CircularProgress';
 import CardComInfoFormat from './components/CardComInfoFormat';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import { GlobalStyles } from '@mui/material';
+// import './CoInfo.css';
 
 const style = {
     p: 0,
@@ -43,95 +47,107 @@ function CoInfo() {
 
     return (
         <>
-        <Box sx={name}>
-            <BusinessIcon sx={{fontSize: 60,paddingTop:1}}/>{/*企業アイコンでもあり。サイズは不安*/}
-            <Typography variant="h2" gutterBottom>
-            企業名
-            </Typography>
-            <Typography variant="h6" gutterBottom sx={{paddingTop:4.3}}>
-            業種
-            </Typography>
-        </Box>
-
-        <Box sx={{display: 'flex', margin: 3}}>
-            <Box>
-            <Box sx={{ flex: 1, marginRight: 5 }}>
-                ◇◆◇データサイエンス界のNo.1コミュニティを目指しています◆◇◆―現在日本に1,000人程度しかいないデータサイエンティストを育成中！『世の中に求められる人材』を育成する当社で、自身のキャリアを描きませんか？"
+        <Box sx = {{backgroundColor:'White', minHeight: '100vh'}}>
+            <Box sx={{ flexGrow: 1}}>
+                <AppBar position="static" sx={{backgroundColor: 'black'}}>
+                <Toolbar variant="dense">
+                    <Typography variant="h6" color="inherit" component="div">
+                    BlackChecker
+                    </Typography>
+                </Toolbar>
+                </AppBar>
             </Box>
 
-            <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider',marginTop: 5 }}>
-                <TabList onChange={handleChange} aria-label="lab API tabs example">
-                    <Tab label="総合" value="1" />
-                    <Tab label="詳細" value="2" />
-                </TabList>
+            <Box sx={name}>
+                <BusinessIcon sx={{fontSize: 60,paddingTop:1}}/>{/*企業アイコンでもあり。サイズは不安*/}
+                <Typography variant="h2" gutterBottom>
+                企業名
+                </Typography>
+                <Typography variant="h6" gutterBottom sx={{paddingTop:4.3}}>
+                業種
+                </Typography>
+            </Box>
+
+            <Box sx={{display: 'flex', margin: 3}}>
+                <Box>
+                <Box sx={{ flex: 1, marginRight: 5 }}>
+                    ◇◆◇データサイエンス界のNo.1コミュニティを目指しています◆◇◆―現在日本に1,000人程度しかいないデータサイエンティストを育成中！『世の中に求められる人材』を育成する当社で、自身のキャリアを描きませんか？"
                 </Box>
 
-                <TabPanel value="1">
+                <TabContext value={value}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider',marginTop: 5 }}>
+                    <TabList onChange={handleChange} aria-label="lab API tabs example">
+                        <Tab label="総合" value="1" />
+                        <Tab label="詳細" value="2" />
+                    </TabList>
+                    </Box>
+
+                    <TabPanel value="1">
 
                         <Box>
                             <Typography variant="h5">Black Rate</Typography>
                         </Box>
-                        
-                    <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
-                        <CircularProgress variant="determinate" value={50} size="12rem"/>
-                        <Box
-                            sx={{
-                                top: 0,
-                                left: 0,
-                                bottom: 0,
-                                right: 0,
-                                position: 'absolute',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <Typography
-                                variant="caption"
-                                component="div"
-                                sx={{ color: 'text.secondary', fontSize:30 }}
-                            >
-                            50%
-                            </Typography>
-                        </Box>
-                    </Box>
-                </TabPanel>
 
-                <TabPanel value="2">
-                        <CardComInfoFormat
-                            Employees = 'No Data'
-                            AgeMean = 'No Data'
-                            FemaleRate = 'No Data'
-                            AnnualIncomeMean = 'No Data'
-                            PaidHolidayDigestibility = 'No Data'
-                            TurnoverRate = 'No Data'
-                            FemaleManagerRate = 'No Data'
-                            DurationMean = 'No Data'
-                        />
+                        <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
+                            <CircularProgress variant="determinate" value={50} size="12rem" sx={{color:'#ffcc00'}}/>
+                            <Box
+                                sx={{
+                                    top: 0,
+                                    left: 0,
+                                    bottom: 0,
+                                    right: 0,
+                                    position: 'absolute',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <Typography
+                                    variant="caption"
+                                    component="div"
+                                    sx={{ color: 'text.secondary', fontSize:30 }}
+                                >
+                                50%
+                                </Typography>
+                            </Box>
+                        </Box>
                     </TabPanel>
-            </TabContext>
+
+                    <TabPanel value="2">
+                            <CardComInfoFormat
+                                Employees = 'No Data'
+                                AgeMean = 'No Data'
+                                FemaleRate = 'No Data'
+                                AnnualIncomeMean = 'No Data'
+                                PaidHolidayDigestibility = 'No Data'
+                                TurnoverRate = 'No Data'
+                                FemaleManagerRate = 'No Data'
+                                DurationMean = 'No Data'
+                            />
+                        </TabPanel>
+                </TabContext>
+                </Box>
+                
+                <List
+                    sx={style}
+                    aria-label="company-info"
+                    subheader={
+                        <ListSubheader component="div">企業情報</ListSubheader>
+                    }
+                >
+                <ListItem>代表者：</ListItem>
+                <Divider component="li" />
+                <ListItem>所在地：</ListItem>
+                <Divider component="li" />
+                <ListItem>Webサイト:</ListItem>
+                <Divider component="li" />
+                <ListItem>資本金：</ListItem>
+                <Divider component="li" />
+                <ListItem>従業員数：</ListItem>
+                <Divider component="li" />
+                <ListItem>支社：</ListItem>
+                </List>
             </Box>
-            
-            <List
-                sx={style}
-                aria-label="company-info"
-                subheader={
-                    <ListSubheader component="div">企業情報</ListSubheader>
-                }
-            >
-            <ListItem>代表者：</ListItem>
-            <Divider component="li" />
-            <ListItem>所在地：</ListItem>
-            <Divider component="li" />
-            <ListItem>Webサイト:</ListItem>
-            <Divider component="li" />
-            <ListItem>資本金：</ListItem>
-            <Divider component="li" />
-            <ListItem>従業員数：</ListItem>
-            <Divider component="li" />
-            <ListItem>支社：</ListItem>
-            </List>
         </Box>
         </>
     )
