@@ -38,12 +38,13 @@ const name = {
     marginTop: 5,
     display: 'flex',
     gap: 2,
+    minWidth:'65vw'
 };
 
 function CoInfo() {
     const location = useLocation();
     const query = new URLSearchParams(location.search);
-    const corporationId = query.get('CompanyLink') || '';
+    const corporation_id = query.get('corporation_id') || '';
 
     interface Job {
         id: number;
@@ -62,6 +63,7 @@ function CoInfo() {
         turnover_rate?: number;
         female_manager_rate?: number;
         average_duration?: number;
+        black_tokens?: number;
     }
 
     const [results, setResults] = React.useState<Job[]>([]);
@@ -70,7 +72,7 @@ function CoInfo() {
         const fetchJobListings = async () => {
             try {
                 const params: { [key: string]: string } = {
-                    corporationId
+                    corporation_id
                 };
 
                 const response = await axios.get(
@@ -83,12 +85,18 @@ function CoInfo() {
             }
         };
         fetchJobListings();
-    }, [corporationId]);
+    }, [corporation_id]);
 
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
+    };
+
+    const getColor = (value: number) => {
+        if (0 <= value && value < 40) return '#565b95'; // Deep Green
+        if (40 <= value && value < 80) return '#ffcc00'; // Yellow
+        if (80 <= value && value <= 100) return '#e23b12'; // Red
     };
 
     return (
@@ -112,7 +120,7 @@ function CoInfo() {
 
                     <Box sx={{ display: 'flex', margin: 3 }}>
                         <Box>
-                            <Box sx={{ flex: 1, marginRight: 5 }}>{job.pr_text ?? "No Data"}</Box>
+                            <Box sx={{ flex: 1, marginRight: 5, minWidth:'65vw' }}>{job.pr_text ?? "No Data"}</Box>
 
                             <TabContext value={value}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider', marginTop: 5 }}>
@@ -127,7 +135,7 @@ function CoInfo() {
                                         <Typography variant="h5">Black Rate</Typography>
                                     </Box>
                                     <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
-                                        <CircularProgress variant="determinate" value={50} size="12rem" sx={{ color: '#ffcc00' }} />
+                                        <CircularProgress variant="determinate" value={job.black_tokens ?? 0} size="12rem" sx={{ color: getColor(job.black_tokens ?? 0) }} />
                                         <Box
                                             sx={{
                                                 top: 0,
@@ -145,7 +153,7 @@ function CoInfo() {
                                                 component="div"
                                                 sx={{ color: 'text.secondary', fontSize: 30 }}
                                             >
-                                                50%
+                                                {`${job.black_tokens ?? 0}%`}
                                             </Typography>
                                         </Box>
                                     </Box>

@@ -23,16 +23,17 @@ const SearchResult: React.FC = () => {
     name: string;
     prefecture: string;
     industry_code: string;
+    black_tokens?: number;
   }
 
   const industryCodeOptions: { [key: string]: string } = {
     "農業，林業": "A",
-    漁業: "B",
+    "漁業": "B",
     "鉱業，採石業，砂利採取業": "C",
-    建設業: "D",
-    製造業: "E",
+    "建設業": "D",
+    "製造業": "E",
     "電気・ガス・熱供給・水道業": "F",
-    情報通信業: "G",
+    "情報通信業": "G",
     "運輸業，郵便業": "H",
     "卸売業，小売業": "I",
     "金融業，保険業": "J",
@@ -42,10 +43,10 @@ const SearchResult: React.FC = () => {
     "生活関連サービス業，娯楽業": "N",
     "教育，学習支援業": "O",
     "医療，福祉": "P",
-    複合サービス事業: "Q",
+    "複合サービス事業": "Q",
     "サービス業（他に分類されないもの）": "R",
     "公務（他に分類されるものを除く）": "S",
-    分類不能の産業: "T",
+    "分類不能の産業": "T",
   };
 
   const getIndustryCode = (option: string): string => {
@@ -123,10 +124,11 @@ const SearchResult: React.FC = () => {
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
         {currentPageResults.map((job) => (
           <CardFormat
+            key={job.id}
             Name={job.name}
-            LinkCode={job.corporation_id}
+            corporation_id={job.corporation_id}
             AccordionContent="オフィスが廃墟。"
-            BlackRate={23}
+            BlackRate={job.black_tokens ?? 0}
           />
         ))}
       </Box>

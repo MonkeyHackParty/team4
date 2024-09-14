@@ -114,6 +114,7 @@ class JobListingViewSet(viewsets.ModelViewSet):
 
       # If no tokens were added, return "判定不可"
       if black_tokens == 0:
+         print("判定不可")
          return "判定不可"
 
       return black_tokens
