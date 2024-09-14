@@ -19,7 +19,7 @@ interface CardFormatProps {
 
 const CardFormat: React.FC<CardFormatProps> = ({ Name, corporation_id, AccordionContent, BlackRate }) => {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', width: '32.2%' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center', width: '32.2%', marginTop:7 }}>
       <Card sx={{ minWidth: 275, width: '100%', display: 'flex', flexDirection: 'row', backgroundColor: '#FFFFFF'}}>
         <Box sx={{ flex: 1, padding: 2 }}>
           <CardContent>

@@ -38,6 +38,7 @@ const name = {
     marginTop: 5,
     display: 'flex',
     gap: 2,
+    minWidth:'65vw'
 };
 
 function CoInfo() {
@@ -119,7 +120,7 @@ function CoInfo() {
 
                     <Box sx={{ display: 'flex', margin: 3 }}>
                         <Box>
-                            <Box sx={{ flex: 1, marginRight: 5 }}>{job.pr_text ?? "No Data"}</Box>
+                            <Box sx={{ flex: 1, marginRight: 5, minWidth:'65vw' }}>{job.pr_text ?? "No Data"}</Box>
 
                             <TabContext value={value}>
                                 <Box sx={{ borderBottom: 1, borderColor: 'divider', marginTop: 5 }}>
