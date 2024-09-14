@@ -43,7 +43,7 @@ const name = {
 function CoInfo() {
     const location = useLocation();
     const query = new URLSearchParams(location.search);
-    const corporationId = query.get('CompanyLink') || '';
+    const corporation_id = query.get('corporation_id') || '';
 
     interface Job {
         id: number;
@@ -70,7 +70,7 @@ function CoInfo() {
         const fetchJobListings = async () => {
             try {
                 const params: { [key: string]: string } = {
-                    corporationId
+                    corporation_id
                 };
 
                 const response = await axios.get(
@@ -83,7 +83,7 @@ function CoInfo() {
             }
         };
         fetchJobListings();
-    }, [corporationId]);
+    }, [corporation_id]);
 
     const [value, setValue] = React.useState('1');
 

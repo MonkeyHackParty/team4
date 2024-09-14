@@ -10,7 +10,7 @@ interface ToLinkProps {
 
 const ToLink: React.FC<ToLinkProps> = ({ CompanyLink }) => {
 
-  const LinkHref = `/information?${encodeURIComponent(CompanyLink)}`;
+  const LinkHref = `/information?corporation_id=${encodeURIComponent(CompanyLink)}`;
 
 
   return (

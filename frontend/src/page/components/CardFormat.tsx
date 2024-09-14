@@ -12,12 +12,12 @@ import ToLink from './ToLink';
 
 interface CardFormatProps {
   Name: string;
-  LinkCode?: number;
+  corporation_id?: number;
   AccordionContent?: string;
   BlackRate: number;
 }
 
-const CardFormat: React.FC<CardFormatProps> = ({ Name, LinkCode, AccordionContent, BlackRate }) => {
+const CardFormat: React.FC<CardFormatProps> = ({ Name, corporation_id, AccordionContent, BlackRate }) => {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', width: '32.2%' }}>
       <Card sx={{ minWidth: 275, width: '100%', display: 'flex', flexDirection: 'row', backgroundColor: '#FFFFFF'}}>
@@ -30,7 +30,7 @@ const CardFormat: React.FC<CardFormatProps> = ({ Name, LinkCode, AccordionConten
               {Name}
             </Typography>
             <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-              {LinkCode && <ToLink CompanyLink={LinkCode} />}
+              {corporation_id && <ToLink CompanyLink={corporation_id} />}
             </Typography>
           </CardContent>
           <CardActions>
@@ -38,7 +38,7 @@ const CardFormat: React.FC<CardFormatProps> = ({ Name, LinkCode, AccordionConten
           </CardActions>
         </Box>
         <Box sx={{ width: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', mt: '10%', mr: '5%' }}>
-          <Circular value={BlackRate} />
+          <Circular value={BlackRate ?? 'No Data'} />
         </Box>
       </Card>
     </Box>

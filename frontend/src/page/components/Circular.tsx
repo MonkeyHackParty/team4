@@ -6,7 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 interface CircularProps {
-  value: number; 
+  value: number;
 }
 
 const Circular: React.FC<CircularProps> = (props) => {
