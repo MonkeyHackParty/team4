@@ -62,6 +62,7 @@ function CoInfo() {
         turnover_rate?: number;
         female_manager_rate?: number;
         average_duration?: number;
+        black_tokens?: number;
     }
 
     const [results, setResults] = React.useState<Job[]>([]);
@@ -127,7 +128,7 @@ function CoInfo() {
                                         <Typography variant="h5">Black Rate</Typography>
                                     </Box>
                                     <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
-                                        <CircularProgress variant="determinate" value={50} size="12rem" sx={{ color: '#ffcc00' }} />
+                                        <CircularProgress variant="determinate" value={job.black_tokens ?? 0} size="12rem" sx={{ color: '#ffcc00' }} />
                                         <Box
                                             sx={{
                                                 top: 0,
@@ -145,7 +146,7 @@ function CoInfo() {
                                                 component="div"
                                                 sx={{ color: 'text.secondary', fontSize: 30 }}
                                             >
-                                                50%
+                                                {`${job.black_tokens ?? 0}%`}
                                             </Typography>
                                         </Box>
                                     </Box>

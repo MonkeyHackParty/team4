@@ -29,8 +29,8 @@ const CardFormat: React.FC<CardFormatProps> = ({ Name, corporation_id, Accordion
             <Typography variant="h5" component="div">
               {Name}
             </Typography>
-            <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-              {corporation_id && <ToLink CompanyLink={corporation_id} />}
+            <Typography component="span" sx={{ color: 'text.secondary', mb: 1.5 }}>
+              {corporation_id && <ToLink corporation_id={corporation_id} />}
             </Typography>
           </CardContent>
           <CardActions>

@@ -124,6 +124,7 @@ const SearchResult: React.FC = () => {
       <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
         {currentPageResults.map((job) => (
           <CardFormat
+            key={job.id}
             Name={job.name}
             corporation_id={job.corporation_id}
             AccordionContent="オフィスが廃墟。"

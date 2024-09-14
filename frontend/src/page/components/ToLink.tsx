@@ -5,12 +5,12 @@ import Link from '@mui/material/Link';
 
 
 interface ToLinkProps {
-  CompanyLink: number;
+  corporation_id: number;
 }
 
-const ToLink: React.FC<ToLinkProps> = ({ CompanyLink }) => {
+const ToLink: React.FC<ToLinkProps> = ({ corporation_id }) => {
 
-  const LinkHref = `/information?corporation_id=${encodeURIComponent(CompanyLink)}`;
+  const LinkHref = `/information?corporation_id=${encodeURIComponent(corporation_id)}`;
 
 
   return (
