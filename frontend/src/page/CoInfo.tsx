@@ -11,11 +11,13 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import CircularProgress from '@mui/material/CircularProgress';
+import CardComInfoFormat from './components/CardComInfoFormat';
 
 const style = {
     p: 0,
     width: '100%',
     maxWidth: 360,
+    maxHeight: 360,
     borderRadius: 2,
     border: '1px solid',
     borderColor: 'divider',
@@ -51,7 +53,7 @@ function CoInfo() {
             </Typography>
         </Box>
 
-        <Box sx={{display: 'flex', margin: 10}}>
+        <Box sx={{display: 'flex', margin: 3}}>
             <Box>
             <Box sx={{ flex: 1, marginRight: 5 }}>
                 ◇◆◇データサイエンス界のNo.1コミュニティを目指しています◆◇◆―現在日本に1,000人程度しかいないデータサイエンティストを育成中！『世の中に求められる人材』を育成する当社で、自身のキャリアを描きませんか？"
@@ -66,32 +68,48 @@ function CoInfo() {
                 </Box>
 
                 <TabPanel value="1">
-                <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
-                    <CircularProgress variant="determinate" value={50} size="12rem"/>
-                    <Box
-                        sx={{
-                            top: 0,
-                            left: 0,
-                            bottom: 0,
-                            right: 0,
-                            position: 'absolute',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}
-                    >
-                        <Typography
-                            variant="caption"
-                            component="div"
-                            sx={{ color: 'text.secondary', fontSize:30 }}
+
+                        <Box>
+                            <Typography variant="h5">Black Rate</Typography>
+                        </Box>
+                        
+                    <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
+                        <CircularProgress variant="determinate" value={50} size="12rem"/>
+                        <Box
+                            sx={{
+                                top: 0,
+                                left: 0,
+                                bottom: 0,
+                                right: 0,
+                                position: 'absolute',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}
                         >
-                        50%
-                        </Typography>
+                            <Typography
+                                variant="caption"
+                                component="div"
+                                sx={{ color: 'text.secondary', fontSize:30 }}
+                            >
+                            50%
+                            </Typography>
+                        </Box>
                     </Box>
-                </Box>
                 </TabPanel>
 
-                <TabPanel value="2">なんか情報</TabPanel>
+                <TabPanel value="2">
+                        <CardComInfoFormat
+                            Employees = 'No Data'
+                            AgeMean = 'No Data'
+                            FemaleRate = 'No Data'
+                            AnnualIncomeMean = 'No Data'
+                            PaidHolidayDigestibility = 'No Data'
+                            TurnoverRate = 'No Data'
+                            FemaleManagerRate = 'No Data'
+                            DurationMean = 'No Data'
+                        />
+                    </TabPanel>
             </TabContext>
             </Box>
             
