@@ -14,11 +14,13 @@ import TabPanel from '@mui/lab/TabPanel';
 import CircularProgress from '@mui/material/CircularProgress';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import CardComInfoFormat from './components/CardComInfoFormat';
 
 const style = {
     p: 0,
     width: '100%',
     maxWidth: 360,
+    maxHeight: 360,
     borderRadius: 2,
     border: '1px solid',
     borderColor: 'divider',
@@ -69,7 +71,7 @@ function CoInfo() {
         </Box>
 
         
-        <Box sx={{display: 'flex', margin: 10}}>
+        <Box sx={{display: 'flex', margin: 3}}>
             <Box>
                 {/* 説明 */}
                 <Box sx={{ flex: 1, marginRight: 5}}>
@@ -90,32 +92,48 @@ function CoInfo() {
                     </Box>
 
                     <TabPanel value="1">
-                    <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
-                        <CircularProgress variant="determinate" value={50} size="12rem" sx={{color:'#ffcc00'}}/>
-                        <Box
-                            sx={{
-                                top: 0,
-                                left: 0,
-                                bottom: 0,
-                                right: 0,
-                                position: 'absolute',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <Typography
-                                variant="caption"
-                                component="div"
-                                sx={{ color: 'text.secondary', fontSize:30 }}
-                            >
-                            50%
-                            </Typography>
+
+                        <Box>
+                            <Typography variant="h5">Black Rate</Typography>
                         </Box>
-                    </Box>
+                        
+                        <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center',alignItems: 'center', marginTop:10}}>
+                            <CircularProgress variant="determinate" value={50} size="12rem" sx={{color:'#ffcc00'}}/>
+                            <Box
+                                sx={{
+                                    top: 0,
+                                    left: 0,
+                                    bottom: 0,
+                                    right: 0,
+                                    position: 'absolute',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}
+                            >
+                                <Typography
+                                    variant="caption"
+                                    component="div"
+                                    sx={{ color: 'text.secondary', fontSize:30 }}
+                                >
+                                50%
+                                </Typography>
+                            </Box>
+                        </Box>
                     </TabPanel>
 
-                    <TabPanel value="2">なんか情報</TabPanel>
+                    <TabPanel value="2">
+                        <CardComInfoFormat
+                            Employees = 'No Data'
+                            AgeMean = 'No Data'
+                            FemaleRate = 'No Data'
+                            AnnualIncomeMean = 'No Data'
+                            PaidHolidayDigestibility = 'No Data'
+                            TurnoverRate = 'No Data'
+                            FemaleManagerRate = 'No Data'
+                            DurationMean = 'No Data'
+                        />
+                    </TabPanel>
                 </TabContext>
             </Box>
             
