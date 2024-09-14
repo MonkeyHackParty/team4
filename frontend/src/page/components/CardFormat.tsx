@@ -12,7 +12,7 @@ import ToLink from './ToLink';
 
 interface CardFormatProps {
   Name: string;
-  LinkCode?: string;
+  LinkCode?: number;
   AccordionContent?: string;
   BlackRate: number;
 }

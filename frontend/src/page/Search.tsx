@@ -35,7 +35,7 @@ const App = () => {
       industry,
     }).toString();
 
-    navigate(`/results?${queryString}`);
+    navigate(`/result?${queryString}`);
   };
 
   return (
@@ -136,22 +136,26 @@ const App = () => {
                 <MenuItem value="">
                 <em>業種を選択</em>
                 </MenuItem>
+                <MenuItem value="農業、林業">農業・林業</MenuItem>
+                <MenuItem value="漁業">漁業</MenuItem>
+                <MenuItem value="鉱業，採石業，砂利採取業">鉱業・採石業・砂利採取業</MenuItem>
+                <MenuItem value="建設業">建設業</MenuItem>
                 <MenuItem value="製造業">製造業</MenuItem>
-                <MenuItem value="建築業">建築業</MenuItem>
-                <MenuItem value="設備業">設備業</MenuItem>
-                <MenuItem value="運輸業">運輸業</MenuItem>
-                <MenuItem value="流通業">流通業</MenuItem>
-                <MenuItem value="農林水産業">農林水産業</MenuItem>
-                <MenuItem value="印刷・出版業">印刷・出版業</MenuItem>
-                <MenuItem value="金融業・保険業">金融業・保険業</MenuItem>
-                <MenuItem value="不動産業">不動産業</MenuItem>
-                <MenuItem value="IT・情報通信業">IT・情報通信業</MenuItem>
-                <MenuItem value="サービス業">サービス業</MenuItem>
-                <MenuItem value="教育・研究機関">教育・研究機関</MenuItem>
-                <MenuItem value="病院・医療機関">病院・医療機関</MenuItem>
-                <MenuItem value="官公庁・自治体">官公庁・自治体</MenuItem>
-                <MenuItem value="法人団体">法人団体</MenuItem>
-                <MenuItem value="その他の業種">その他の業種</MenuItem>
+                <MenuItem value="電気・ガス・熱供給・水道業">電気・ガス・熱供給・水道業</MenuItem>
+                <MenuItem value="情報通信業">情報通信業</MenuItem>
+                <MenuItem value="運輸業，郵便業">運輸業・郵便業</MenuItem>
+                <MenuItem value="卸売業，小売業">卸売業・小売業</MenuItem>
+                <MenuItem value="金融業，保険業">金融業・保険業</MenuItem>
+                <MenuItem value="不動産業，物品賃貸業">不動産業・物品賃貸業</MenuItem>
+                <MenuItem value="学術研究，専門・技術サービス業">学術研究・専門・技術サービス業</MenuItem>
+                <MenuItem value="宿泊業，飲食サービス業">宿泊業・飲食サービス業</MenuItem>
+                <MenuItem value="生活関連サービス業，娯楽業">生活関連サービス業・娯楽業</MenuItem>
+                <MenuItem value="教育，学習支援業">教育・学習支援業</MenuItem>
+                <MenuItem value="医療，福祉">医療・福祉</MenuItem>
+                <MenuItem value="複合サービス事業">複合サービス事業</MenuItem>
+                <MenuItem value="サービス業（他に分類されないもの）">その他のサービス業</MenuItem>
+                <MenuItem value="公務（他に分類されるものを除く）">その他の公務</MenuItem>
+                <MenuItem value="分類不能の産業">その他</MenuItem>
             </Select>
           </div>
         </div>

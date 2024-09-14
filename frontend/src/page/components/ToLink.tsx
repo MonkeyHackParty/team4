@@ -5,7 +5,7 @@ import Link from '@mui/material/Link';
 
 
 interface ToLinkProps {
-  CompanyLink: string;
+  CompanyLink: number;
 }
 
 const ToLink: React.FC<ToLinkProps> = ({ CompanyLink }) => {
