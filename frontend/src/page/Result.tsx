@@ -12,37 +12,31 @@ const CardListPage1: React.FC = () => {
       <CardFormat
         Name="企業１"
         LinkCode="Company-1"
-        AccordionContent="この企業はそこそこブラックですよ。"
         BlackRate={23}
       />
       <CardFormat
         Name="企業２"
         LinkCode="Company-2"
-        AccordionContent="この企業は若干ホワイトそうです。"
         BlackRate={45}
       />
       <CardFormat
         Name="企業３"
         LinkCode="Company-3"
-        AccordionContent="口癖が「どつきまわすぞ」。"
         BlackRate={62}
       />
       <CardFormat
         Name="企業４"
         LinkCode="Company-4"
-        AccordionContent="くら寿司のパクリ。"
         BlackRate={80}
       />
       <CardFormat
         Name="企業５"
         LinkCode="Company-5"
-        AccordionContent="ケチ。"
         BlackRate={100}
       />
       <CardFormat
         Name="企業６"
         LinkCode="Company-6"
-        AccordionContent="ときどき落とし穴が仕掛けられている。"
         BlackRate={46}
       />
     </Box>
@@ -55,37 +49,31 @@ const CardListPage2: React.FC = () => {
       <CardFormat
         Name="企業７"
         LinkCode="Company-7"
-        AccordionContent="オフィスが廃墟。"
         BlackRate={23}
       />
       <CardFormat
         Name="企業８"
         LinkCode="Company-8"
-        AccordionContent="クワガタの餌やり係だるい。"
         BlackRate={64}
       />
       <CardFormat
         Name="企業９"
         LinkCode="Company-9"
-        AccordionContent="隣がヤクザの事務所。"
         BlackRate={13}
       />
       <CardFormat
         Name="企業１０"
         LinkCode="Company-10"
-        AccordionContent="オフィスが４５階にあるがエレベーターがない。"
         BlackRate={80}
       />
       <CardFormat
         Name="企業１１"
         LinkCode="Company-11"
-        AccordionContent="社長がはげてる。"
         BlackRate={100}
       />
       <CardFormat
         Name="企業１２"
         LinkCode="Company-12"
-        AccordionContent="資料が全部手書き。"
         BlackRate={46}
       />
     </Box>

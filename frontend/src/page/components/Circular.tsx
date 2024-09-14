@@ -11,6 +11,28 @@ interface CircularProps {
 
 const Circular: React.FC<CircularProps> = (props) => {
 
+  const [progress, setProgress] = React.useState(0);
+
+  React.useEffect(() => {
+    const animationDuration = 1; // アニメーションの時間（ミリ秒）
+    const startTime = Date.now();
+    const endValue = props.value;
+  
+    const animate = () => {
+      const now = Date.now();
+      const elapsedTime = now - startTime;
+      const progressPercent = Math.min(elapsedTime / animationDuration, 1);
+      setProgress(progressPercent * endValue);
+  
+      if (progressPercent < 1) {
+        requestAnimationFrame(animate);
+      }
+  };
+  
+  animate();
+  }, [props.value]);
+  
+
   //変更点１（パーセントに合わせて色の変更）
   const getColor = (value: number) => {
     if (0 <= value && value < 40) return '#565b95'; // Deep Green
@@ -50,9 +72,9 @@ const Circular: React.FC<CircularProps> = (props) => {
           sx={{
             position: 'absolute',
             //変更点２
-            color:getColor(props.value)
+            color: getColor(progress),
           }}
-          {...props}
+          value={Math.round(progress)}
         />
         <Box
           sx={{
@@ -71,7 +93,7 @@ const Circular: React.FC<CircularProps> = (props) => {
               fontSize: '1rem',
             }}
           >
-            {`${Math.round(props.value)}%`}
+            {`${Math.round(progress)}%`}
           </Typography>
         </Box>
       </Box>
