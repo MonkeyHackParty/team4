@@ -92,6 +92,12 @@ function CoInfo() {
         setValue(newValue);
     };
 
+    const getColor = (value: number) => {
+        if (0 <= value && value < 40) return '#565b95'; // Deep Green
+        if (40 <= value && value < 80) return '#ffcc00'; // Yellow
+        if (80 <= value && value <= 100) return '#e23b12'; // Red
+    };
+
     return (
         <Box sx={{ backgroundColor: 'White', minHeight: '100vh' }}>
             {results.map(job => (
@@ -128,7 +134,7 @@ function CoInfo() {
                                         <Typography variant="h5">Black Rate</Typography>
                                     </Box>
                                     <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
-                                        <CircularProgress variant="determinate" value={job.black_tokens ?? 0} size="12rem" sx={{ color: '#ffcc00' }} />
+                                        <CircularProgress variant="determinate" value={job.black_tokens ?? 0} size="12rem" sx={{ color: getColor(job.black_tokens ?? 0) }} />
                                         <Box
                                             sx={{
                                                 top: 0,
