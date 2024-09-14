@@ -41,9 +41,9 @@ const Circular: React.FC<CircularProps> = (props) => {
           variant="determinate"
           sx={{
             position: 'absolute',
-            color: '#fdf626',
+            color:'#ffcc00'
           }}
-          {...props} 
+          {...props}
         />
         <Box
           sx={{

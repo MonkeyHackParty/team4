@@ -134,7 +134,7 @@ const SearchResult: React.FC = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column' , backgroundColor:'white'}}>
       <ButtonAppBar />
 
       <Box sx={{ flex: 1, mt: 3, ml: 1, mb: '60px', px: 2 }}>

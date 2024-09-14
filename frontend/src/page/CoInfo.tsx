@@ -14,8 +14,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 import CardComInfoFormat from './components/CardComInfoFormat';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { GlobalStyles } from '@mui/material';
-// import './CoInfo.css';
 
 const style = {
     p: 0,
