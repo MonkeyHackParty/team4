@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from "react-router-dom";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -105,9 +106,11 @@ function CoInfo() {
                 <Box key={job.id} sx={{ flexGrow: 1 }}>
                     <AppBar position="static" sx={{ backgroundColor: 'black' }}>
                         <Toolbar variant="dense">
-                            <Typography variant="h6" color="inherit" component="div">
+                        <Typography variant="h6" color="inherit" component="div">
+                            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
                                 BlackChecker
-                            </Typography>
+                            </Link>
+                    </Typography>
                         </Toolbar>
                     </AppBar>
 
